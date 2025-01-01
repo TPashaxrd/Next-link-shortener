@@ -1,0 +1,201 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-bg-color: #1a1a1a; 
+  --secondary-bg-color: #2c2c2c;
+  --primary-text-color: #e5e5e5;
+  --secondary-text-color: #b3b3b3;
+  --button-bg-color: #4f81e7;
+  --button-bg-hover: #3c68c2;
+  --link-color: #64b5f6;
+  --link-hover-color: #1e88e5;
+  --input-border-color: #444;
+  --input-focus-border-color: #4f81e7;
+  --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-bg-color: #000000;
+    --secondary-bg-color: #121212;
+    --primary-text-color: #ffffff;
+    --secondary-text-color: #bbbbbb;
+    --button-bg-color: #4f81e7;
+    --button-bg-hover: #3c68c2;
+    --link-color: #64b5f6;
+    --link-hover-color: #1e88e5;
+    --input-border-color: #444;
+    --input-focus-border-color: #4f81e7;
+    --card-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
+  }
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--primary-bg-color);
+  color: var(--primary-text-color);
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2 {
+  transition: color 0.3s ease;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--primary-text-color);
+  margin-bottom: 16px;
+}
+
+h2 {
+  font-size: 1.875rem;
+  font-weight: 500;
+  color: var(--secondary-text-color);
+  margin-bottom: 24px;
+}
+
+main {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background-color: var(--primary-bg-color);
+}
+
+.card {
+  background-color: var(--secondary-bg-color);
+  border-radius: 12px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: var(--card-shadow);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.7);
+  transform: translateY(-5px);
+}
+
+input, button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 1rem;
+  margin-bottom: 16px;
+}
+
+input {
+  border: 2px solid var(--input-border-color);
+  background-color: var(--primary-bg-color);
+  color: var(--primary-text-color);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus {
+  border-color: var(--input-focus-border-color);
+  box-shadow: 0 0 5px var(--input-focus-border-color);
+  outline: none;
+}
+
+button {
+  background-color: var(--button-bg-color);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--button-bg-hover);
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+a:hover {
+  color: var(--link-hover-color);
+  text-decoration: underline;
+  transform: scale(1.05);
+}
+
+.shortened-url {
+  margin-top: 24px;
+}
+
+.shortened-url p {
+  color: var(--secondary-text-color);
+  margin-bottom: 8px;
+}
+
+.shortened-url a {
+  color: var(--link-color);
+  word-wrap: break-word;
+  display: block;
+}
+
+.qrcode-link {
+  margin-top: 32px;
+  font-size: 1.125rem;
+}
+
+.qrcode-link a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+.qrcode-link a:hover {
+  color: var(--link-hover-color);
+  text-decoration: underline;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card {
+  animation: fadeIn 0.8s ease-out;
+}
+
+@media (max-width: 640px) {
+  .card {
+    padding: 1.5rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  input, button {
+    padding: 10px;
+  }
+}
